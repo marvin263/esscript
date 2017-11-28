@@ -1,0 +1,94 @@
+﻿{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "range": {
+            "questionId": {
+              "from": 1,
+              "to": 20000
+            }
+          }
+        }
+      ]
+    }
+  },
+  "aggs": {
+    "replyCount_groups": {
+      "range": {
+        "field": "replyCount",
+        "ranges": [
+          {
+            "from": 0,
+            "to": 1
+          },
+          {
+            "from": 1,
+            "to": 3
+          },
+          {
+            "from": 3
+          }
+        ]
+      },
+      "aggs": {
+        "viewCount_stats": {
+          "stats": {
+            "field": "viewCount"
+          }
+        }
+      }
+    },
+    "second_groups": {
+      "range": {
+        "field": "replyCount",
+        "ranges": [
+          {
+            "from": 0,
+            "to": 1
+          },
+          {
+            "from": 1,
+            "to": 3
+          },
+          {
+            "from": 3
+          }
+        ]
+      },
+      "aggs": {
+        "viewCount_stats": {
+          "stats": {
+            "field": "viewCount"
+          }
+        }
+      }
+    },
+    "third_groups": {
+      "range": {
+        "field": "replyCount",
+        "ranges": [
+          {
+            "from": 0,
+            "to": 1
+          },
+          {
+            "from": 1,
+            "to": 3
+          },
+          {
+            "from": 3
+          }
+        ]
+      },
+      "aggs": {
+        "viewCount_stats": {
+          "stats": {
+            "field": "viewCount"
+          }
+        }
+      }
+    }
+  }
+}
+    
