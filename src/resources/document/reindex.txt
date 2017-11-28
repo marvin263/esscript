@@ -1,2 +1,17 @@
 
-
+# 10.40.191.78:9200 in guo's es
+POST _reindex
+{
+  "source": {
+    "remote": {
+      "host": "http://10.40.191.78:9200"
+    },
+    "index": "community_post",
+    "query": {
+      "match_all": {}
+    }
+  },
+  "dest": {
+    "index": "community_post"
+  }
+}
