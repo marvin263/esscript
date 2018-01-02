@@ -1,0 +1,164 @@
+GET askq_question/questionwithtags/_search
+{
+  "explain": true,
+  "_source": [
+    "question",
+    "adoptedAnswerCount"
+  ],
+  "query": {
+    "function_score": {
+      "query": {
+        "match": {
+          "question": "怎么从上海去周庄？下周带孩子去周庄游玩，人从上海出发，但是没经验，不懂路线，有谁能介绍一下怎么从上海过去？"
+        }
+      },
+      "functions": [
+        {
+          "filter": {
+            "term": {
+              "question.questionRaw": "怎么从上海去周庄？下周带孩子去周庄游玩，人从上海出发，但是没经验，不懂路线，有谁能介绍一下怎么从上海过去？"
+            }
+          },
+          "weight": 1.89
+        }
+      ],
+      "max_boost": 9876,
+      "score_mode": "sum",
+      "boost_mode": "replace"
+    }
+  }
+} 
+
+
+
+
+
+GET askq_question/questionwithtags/_search
+{"explain": true, 
+  "size": 20,
+  "_source": [
+    "question",
+    "questionId",
+    "excellent",
+    "createTime",
+    "replyCount",
+    "viewCount",
+    "excellentAnswerCount",
+    "adoptedAnswerCount"
+  ],
+  "query": {
+    "function_score": {
+      "query": {
+        "bool": {
+          "filter": [
+            {
+              "term": {
+                "delFlag": 0
+              }
+            },
+            {
+              "term": {
+                "auditResult": 1
+              }
+            }
+          ],
+          "must": [
+            {
+              "dis_max": {
+                "tie_breaker": 0,
+                "boost": 1,
+                "queries": [
+                  {
+                    "match": {
+                      "question": {
+                        "query": "怎么坐车呢，我在西安",
+                        "cutoff_frequency": 0.001
+                      }
+                    }
+                  },
+                  {
+                    "term": {
+                      "question.questionRaw": {
+                        "value": "我在西安，怎么坐车呢",
+                        "boost": 5
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "functions": [
+        {
+          "filter": {
+            "range": {
+              "excellentAnswerCount": {
+                "gt": 0
+              }
+            }
+          },
+          "weight": 0.1
+        },
+        {
+          "filter": {
+            "range": {
+              "adoptedAnswerCount": {
+                "gt": 0
+              }
+            }
+          },
+          "weight": 0.1
+        },
+        {
+          "filter": {
+            "term": {
+              "excellent": 2
+            }
+          },
+          "weight": 0.3
+        },
+        {
+          "script_score": {
+            "lang":"java",
+            "script": {
+              "params": {
+                "c06201": 3
+              },
+              "inline": "Math.log(1+(Math.E-1)*(doc['replyCount'].value/(doc['replyCount'].value+c06201)))"
+            }
+          },
+          "weight": 0.05
+        },
+        {
+          "script_score": {
+            "lang":"java",
+            "script": {
+              "params": {
+                "c06201": 1200
+              },
+              "inline": "Math.log(1+(Math.E-1)*(doc['viewCount'].value/(doc['viewCount'].value+c06201)))"
+            }
+          },
+          "weight": 0.05
+        },
+        {
+          "gauss": {
+            "createTime": {
+              "origin": "now",
+              "scale": "30d",
+              "offset": "7d",
+              "decay": 0.5
+            }
+          },
+          "weight": 0.4
+        }
+      ],
+      "min_score": 0,
+      "max_boost": 2200000000,
+      "score_mode": "sum",
+      "boost_mode": "multiply"
+    }
+  }
+}
