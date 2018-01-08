@@ -1,0 +1,31 @@
+
+DELETE books_v1
+
+PUT books_v1
+{
+    "mappings":{
+        "transactions":{
+            "dynamic":"false",
+            "_all":{
+                "enabled":false
+            },
+            "properties":{
+                "price":{
+                    "type":"integer"
+                },
+                "category":{
+                    "type":"keyword"
+                },
+                "sold":{
+                    "type":"date",
+                    "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
+                }
+            }
+        }
+    },
+    "aliases":{
+        "books":{
+
+        }
+    }
+}
