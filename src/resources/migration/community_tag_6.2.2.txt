@@ -1,0 +1,109 @@
+DELETE community_tag-2018.02.23
+
+PUT community_tag-2018.02.23
+{
+    "mappings":{
+            "taginfo":{
+                "dynamic":"false",
+                "_all":{
+                    "enabled":false
+                },
+                "properties":{
+                    "del_flag":{
+                        "type":"integer"
+                    },
+                    "bg_url":{
+                        "type":"keyword"
+                    },
+                    "del_time":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
+                    },
+                    "description":{
+                        "analyzer":"ik_smart",
+                        "type":"text",
+                        "fields":{
+                            "raw":{
+                                "type":"keyword"
+                            }
+                        }
+                    },
+                    "source_type":{
+                        "type":"integer"
+                    },
+                    "hot":{
+                        "type":"integer"
+                    },
+                    "add_uname":{
+                        "analyzer":"ik_smart",
+                        "type":"text",
+                        "fields":{
+                            "raw":{
+                                "type":"keyword"
+                            }
+                        }
+                    },
+                    "update_uname":{
+                        "analyzer":"ik_smart",
+                        "type":"text",
+                        "fields":{
+                            "raw":{
+                                "type":"keyword"
+                            }
+                        }
+                    },
+                    "hide":{
+                        "type":"integer"
+                    },
+                    "update_time":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
+                    },
+                    "name":{
+                        "analyzer":"ik_smart",
+                        "type":"text",
+                        "fields":{
+                            "raw":{
+                                "type":"keyword"
+                            }
+                        }
+                    },
+                    "tag_id":{
+                        "type":"long"
+                    },
+                    "post_type":{
+                        "type":"integer"
+                    },
+                    "del_uid":{
+                        "type":"long"
+                    },
+                    "update_uid":{
+                        "type":"long"
+                    },
+                    "add_time":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
+                    },
+                    "add_uid":{
+                        "type":"long"
+                    },
+                    "del_uname":{
+                        "analyzer":"ik_smart",
+                        "type":"text",
+                        "fields":{
+                            "raw":{
+                                "type":"keyword"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+}
+
+POST /_aliases
+{
+    "actions" : [
+        { "add" : { "index" : "community_tag-2018.02.23", "alias" : "community_tag" } }
+    ]
+}

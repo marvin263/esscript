@@ -1,0 +1,13 @@
+{
+    "error": {
+        "root_cause": [
+            {
+                "type": "json_parse_exception",
+                "reason": "Unrecognized token 'dd': was expecting ('true', 'false' or 'null')\n at [Source: org.elasticsearch.transport.netty4.ByteBufStreamInput@1816f4e; line: 1, column: 4]"
+            }
+        ],
+        "type": "json_parse_exception",
+        "reason": "Unrecognized token 'dd': was expecting ('true', 'false' or 'null')\n at [Source: org.elasticsearch.transport.netty4.ByteBufStreamInput@1816f4e; line: 1, column: 4]"
+    },
+    "status": 500
+}

@@ -1,0 +1,76 @@
+DELETE failed_bulk_items-2018.02.23
+
+PUT failed_bulk_items-2018.02.23
+{
+    "mappings":{
+            "failedBulkItemInfo":{
+                "dynamic":"false",
+                "_all":{
+                    "enabled":false
+                },
+                "properties":{
+                    "failedDetailMessage":{
+                        "analyzer":"ik_smart",
+                        "type":"string"
+                    },
+                    "failedExceptionToString":{
+                        "analyzer":"ik_smart",
+                        "type":"string"
+                    },
+                    "opType":{
+                        "index":"not_analyzed",
+                        "type":"string"
+                    },
+                    "tomcatInstanceId":{
+                        "index":"not_analyzed",
+                        "type":"string"
+                    },
+                    "failedOnIndex":{
+                        "index":"not_analyzed",
+                        "type":"string"
+                    },
+                    "orgnRequest":{
+                        "analyzer":"ik_smart",
+                        "type":"string"
+                    },
+                    "updateTime":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
+                    },
+                    "failedOnType":{
+                        "index":"not_analyzed",
+                        "type":"string"
+                    },
+                    "executionId":{
+                        "type":"long"
+                    },
+                    "failedStatusString":{
+                        "index":"not_analyzed",
+                        "type":"string"
+                    },
+                    "itemId":{
+                        "type":"integer"
+                    },
+                    "createTime":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
+                    },
+                    "failedOnId":{
+                        "index":"not_analyzed",
+                        "type":"string"
+                    },
+                    "occurOnThread":{
+                        "index":"not_analyzed",
+                        "type":"string"
+                    }
+                }
+            }
+        }
+}
+
+POST /_aliases
+{
+    "actions" : [
+        { "add" : { "index" : "failed_bulk_items-2018.02.23", "alias" : "failed_bulk_items" } }
+    ]
+}

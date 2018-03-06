@@ -1,0 +1,78 @@
+DELETE faq_qa-2018.02.23
+
+PUT faq_qa-2018.02.23
+{
+    "mappings":{
+            "qainfo":{
+                "dynamic":"false",
+                "_all":{
+                    "enabled":false
+                },
+                "properties":{
+                    "deleteFlag":{
+                        "type":"boolean"
+                    },
+                    "parentCategoryName":{
+                        "type":"keyword"
+                    },
+                    "modifyTime":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
+                    },
+                    "answer":{
+                        "analyzer":"ik_smart",
+                        "type":"text",
+                        "fields":{
+                            "answerRaw":{
+                                "type":"keyword"
+                            }
+                        }
+                    },
+                    "question":{
+                        "analyzer":"ik_smart",
+                        "type":"text",
+                        "fields":{
+                            "questionRaw":{
+                                "type":"keyword"
+                            }
+                        }
+                    },
+                    "createTime":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
+                    },
+                    "parentCategoryId":{
+                        "type":"integer"
+                    },
+                    "sort":{
+                        "type":"integer"
+                    },
+                    "keyword":{
+                        "analyzer":"ik_smart",
+                        "type":"text",
+                        "fields":{
+                            "keywordRaw":{
+                                "type":"keyword"
+                            }
+                        }
+                    },
+                    "categoryName":{
+                        "type":"keyword"
+                    },
+                    "categoryId":{
+                        "type":"integer"
+                    },
+                    "qaId":{
+                        "type":"integer"
+                    }
+                }
+            }
+        }
+}
+
+POST /_aliases
+{
+    "actions" : [
+        { "add" : { "index" : "faq_qa-2018.02.23", "alias" : "faq_qa" } }
+    ]
+}

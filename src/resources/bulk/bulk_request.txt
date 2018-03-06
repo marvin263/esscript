@@ -1,0 +1,13 @@
+
+curl -s -H "Content-Type: application/x-ndjson" -XPOST 10.10.36.111:9200/_bulk --data-binary "@relativeOrAbsFilePath"; echo
+
+
+curl -s -H "Content-Type: application/x-ndjson" -XPOST 10.10.36.111:9200/_bulk --data-binary "@bulk_request.txt"; echo
+
+{ "index" : { "_index" : "bulk_test_index", "_type" : "bulk_test_mapping", "_id" : "1" } }
+{ "f1" : "v1" }
+{ "delete" : { "_index" : "bulk_test_index", "_type" : "bulk_test_mapping", "_id" : "2" } }
+{ "create" : { "_index" : "bulk_test_index", "_type" : "bulk_test_mapping", "_id" : "3" } }
+{ "f1" : "v3" }
+{ "update" : {"_id" : "1", "_type" : "bulk_test_mapping", "_index" : "bulk_test_index"} }
+{ "doc" : {"f2" : "v2"} }

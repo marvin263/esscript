@@ -1,5 +1,5 @@
 
-# 10.40.191.78:9200 in guo's es
+# 10.40.191.78:9200
 # dest 需要配置：reindex.remote.whitelist: 10.40.191.78:9200
 # remote 无需特殊配置
 POST _reindex
@@ -8,12 +8,12 @@ POST _reindex
     "remote": {
       "host": "http://10.40.191.78:9200"
     },
-    "index": "community_post",
+    "index": "askq_question",
     "query": {
       "match_all": {}
     }
   },
   "dest": {
-    "index": "community_post"
+    "index": "askq_question"
   }
 }

@@ -1,0 +1,42 @@
+DELETE live_bi_recommend-2018.02.23
+
+PUT live_bi_recommend-2018.02.23
+{
+    "mappings":{
+            "recommend_info":{
+                "dynamic":"false",
+                "_all":{
+                    "enabled":false
+                },
+                "properties":{
+                    "score":{
+                        "type":"float"
+                    },
+                    "create_time":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
+                    },
+                    "user_id":{
+                        "type":"long"
+                    },
+                    "recommend_type":{
+                        "type":"integer"
+                    },
+                    "poi_type":{
+                        "type":"integer"
+                    },
+                    "poi_id":{
+                        "type":"integer"
+                    }
+                }
+            }
+        }
+}
+
+POST /_aliases
+{
+    "actions" : [
+        { "add" : { "index" : "live_bi_recommend-2018.02.23", "alias" : "live_bi_user_poi_for_store" }},
+        { "add" : { "index" : "live_bi_recommend-2018.02.23", "alias" : "live_bi_user_poi" }}
+    ]
+}

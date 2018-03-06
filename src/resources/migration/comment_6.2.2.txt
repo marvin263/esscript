@@ -1,0 +1,34 @@
+DELETE comment-2018.02.23
+
+PUT comment-2018.02.23
+{
+    "mappings":{
+            "comment_info":{
+                "properties":{
+                    "targetId":{
+                        "type":"long"
+                    },
+                    "createTime":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
+                    },
+                    "praiseCount":{
+                        "type":"long"
+                    },
+                    "commentId":{
+                        "type":"long"
+                    },
+                    "targetType":{
+                        "type":"long"
+                    }
+                }
+            }
+        }
+}
+
+POST /_aliases
+{
+    "actions" : [
+        { "add" : { "index" : "comment-2018.02.23", "alias" : "comment" } }
+    ]
+}

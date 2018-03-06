@@ -1,0 +1,112 @@
+DELETE cnt_content-2018.02.23
+
+PUT cnt_content-2018.02.23
+{
+    "mappings":{
+            "cntContentInfo":{
+                "dynamic":"false",
+                "_all":{
+                    "enabled":false
+                },
+                "properties":{
+                    "comment_count":{
+                        "type":"integer"
+                    },
+                    "origin_id":{
+                        "type":"integer"
+                    },
+                    "poi_names":{
+                        "type":"keyword"
+                    },
+                    "is_excellent":{
+                        "type":"integer"
+                    },
+                    "title":{
+                        "type":"keyword"
+                    },
+                    "type":{
+                        "type":"integer"
+                    },
+                    "update_time":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
+                    },
+                    "admin_update_time":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
+                    },
+                    "id":{
+                        "type":"integer"
+                    },
+                    "poi_ids":{
+                        "type":"integer"
+                    },
+                    "state":{
+                        "type":"integer"
+                    },
+                    "pois":{
+                        "type":"keyword"
+                    },
+                    "admin_updater":{
+                        "type":"integer"
+                    },
+                    "images":{
+                        "type":"keyword"
+                    },
+                    "tag_ids":{
+                        "type":"integer"
+                    },
+                    "create_time":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
+                    },
+                    "tag_names":{
+                        "type":"keyword"
+                    },
+                    "collect_count":{
+                        "type":"integer"
+                    },
+                    "is_top":{
+                        "type":"integer"
+                    },
+                    "origin_type":{
+                        "type":"integer"
+                    },
+                    "is_delete":{
+                        "type":"integer"
+                    },
+                    "tags":{
+                        "type":"keyword"
+                    },
+                    "share_count":{
+                        "type":"integer"
+                    },
+                    "source_content":{
+                        "type":"keyword"
+                    },
+                    "creator_id":{
+                        "type":"integer"
+                    },
+                    "praise_count":{
+                        "type":"integer"
+                    },
+                    "source_id":{
+                        "type":"integer"
+                    },
+                    "remarks":{
+                        "type":"keyword"
+                    },
+                    "view_count":{
+                        "type":"integer"
+                    }
+                }
+            }
+        }
+}
+
+POST /_aliases
+{
+    "actions" : [
+        { "add" : { "index" : "cnt_content-2018.02.23", "alias" : "cnt_content" } }
+    ]
+}
