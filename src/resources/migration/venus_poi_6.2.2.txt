@@ -50,7 +50,12 @@ PUT venus_poi-2018.02.23
                         "type":"text",
                         "fields":{
                             "english_nameRaw":{
-                                "type":"keyword"
+                                "type":"keyword",
+                                "ignore_above":1024
+                            },
+                            "raw":{
+                                "type":"keyword",
+                                "ignore_above":1024
                             }
                         }
                     },
@@ -160,7 +165,12 @@ PUT venus_poi-2018.02.23
                         "type":"text",
                         "fields":{
                             "nameRaw":{
-                                "type":"keyword"
+                                "type":"keyword",
+                                "ignore_above":1024
+                            },
+                            "raw":{
+                                "type":"keyword",
+                                "ignore_above":1024
                             }
                         }
                     },

@@ -17,7 +17,8 @@ PUT askq_question-2018.02.23
                     "type":"text",
                     "fields":{
                         "raw":{
-                            "type":"keyword"
+                            "type":"keyword",
+                            "ignore_above":1024
                         }
                     }
                 },
@@ -32,7 +33,8 @@ PUT askq_question-2018.02.23
                     "type":"text",
                     "fields":{
                         "raw":{
-                            "type":"keyword"
+                            "type":"keyword",
+                            "ignore_above":1024
                         }
                     }
                 },
@@ -69,7 +71,8 @@ PUT askq_question-2018.02.23
                     "type":"text",
                     "fields":{
                         "raw":{
-                            "type":"keyword"
+                            "type":"keyword",
+                            "ignore_above":1024
                         }
                     }
                 },
@@ -81,7 +84,8 @@ PUT askq_question-2018.02.23
                     "type":"text",
                     "fields":{
                         "questionRaw":{
-                            "type":"keyword"
+                            "type":"keyword",
+                            "ignore_above":1024
                         }
                     }
                 },
@@ -132,7 +136,8 @@ PUT askq_question-2018.02.23
                     "type":"text",
                     "fields":{
                         "raw":{
-                            "type":"keyword"
+                            "type":"keyword",
+                            "ignore_above":1024
                         }
                     }
                 }

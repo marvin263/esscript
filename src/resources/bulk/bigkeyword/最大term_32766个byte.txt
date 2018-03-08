@@ -1,0 +1,35 @@
+{
+    "took":30,
+    "errors":true,
+    "items":[
+        {
+            "index":{
+                "_index":"test_super_big_keyword",
+                "_type":"_doc",
+                "_id":"1",
+                "status":400,
+                "error":{
+                    "type":"illegal_argument_exception",
+                    "reason":"Document contains at least one immense term in field="post_content.raw" (whose UTF8 encoding is longer than the max length 32766), all of which were skipped. Please correct the analyzer to not produce such terms. The prefix of the first immense term is: '[-24, -65, -103, -26, -104, -81, -28, -72, -128, -28, -72, -86, -27, -67, -109, -27, -119, -115, -27, -101, -67, -23, -103, -123, -25, -92, -66, -28, -68, -102]...', original message: bytes can be at most 32766 in length; got 32769",
+                    "caused_by":{
+                        "type":"max_bytes_length_exceeded_exception",
+                        "reason":"max_bytes_length_exceeded_exception: bytes can be at most 32766 in length; got 32769"
+                    }
+                }
+            }
+        }
+    ]
+}
+
+
+"reason":"Document contains at least one immense term in field="post_content.raw" 
+(whose UTF8 encoding is longer than the max length 32766), all of which were skipped.
+Please correct the analyzer to not produce such terms.
+The prefix of the first immense term is: '[-24, -65, -103, -26, -104, -81, -28, -72, -128, -28, -72, -86, -27, -67, -109, -27, -119, -115, -27, -101, -67, -23, -103, -123, -25, -92, -66, -28, -68, -102]...',
+ original message: bytes can be at most 32766 in length; got 32769",
+ 
+ 一旦产生了这个异常，则，整个doc都无法索引了（并不是说，单单此字段无法索引哦）
+ 
+ 可以设置ignore_above，这样，仅仅是这个大大的keyword不索引了，此doc的其他字段不受影响照常索引
+ 
+ 最大term 就是 32766 byte，全是汉字的话，就是 32766/3 = 10922 个汉字

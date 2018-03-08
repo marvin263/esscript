@@ -1,0 +1,25 @@
+
+DELETE test_super_big_text
+
+PUT test_super_big_text
+{
+  "mappings": {
+    "_doc": {
+      "dynamic": "false",
+      "_all": {
+        "enabled": false
+      },
+      "properties": {
+        "post_id": {
+          "type": "integer"
+        },
+        "post_content": {
+          "analyzer": "ik_smart",
+          "type": "text"
+        }
+      }
+    }
+  }
+}
+
+curl -s -H "Content-Type: application/x-ndjson" -XPOST 10.30.66.23:9200/_bulk --data-binary "@big_text.txt"; echo

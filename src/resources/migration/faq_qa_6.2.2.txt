@@ -24,7 +24,12 @@ PUT faq_qa-2018.02.23
                         "type":"text",
                         "fields":{
                             "answerRaw":{
-                                "type":"keyword"
+                                "type":"keyword",
+                                "ignore_above":1024
+                            },
+                            "raw":{
+                                "type":"keyword",
+                                "ignore_above":1024
                             }
                         }
                     },
@@ -33,7 +38,12 @@ PUT faq_qa-2018.02.23
                         "type":"text",
                         "fields":{
                             "questionRaw":{
-                                "type":"keyword"
+                                "type":"keyword",
+                                "ignore_above":1024
+                            },
+                            "raw":{
+                                "type":"keyword",
+                                "ignore_above":1024
                             }
                         }
                     },
@@ -52,7 +62,12 @@ PUT faq_qa-2018.02.23
                         "type":"text",
                         "fields":{
                             "keywordRaw":{
-                                "type":"keyword"
+                                "type":"keyword",
+                                "ignore_above":1024
+                            },
+                            "raw":{
+                                "type":"keyword",
+                                "ignore_above":1024
                             }
                         }
                     },

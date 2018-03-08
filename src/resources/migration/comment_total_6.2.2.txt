@@ -1,0 +1,65 @@
+
+DELETE comment_total-2018.02.23
+
+PUT comment_total-2018.02.23
+{
+    "mappings":{
+            "comment_info":{
+                "dynamic":"false",
+                "_all":{
+                    "enabled":false
+                },
+                "properties":{
+                    "cbdId":{
+                        "type":"long"
+                    },
+                    "commentInfo":{
+                        "analyzer":"ik_smart",
+                        "type":"text",
+                        "fields":{
+                            "raw":{
+                                "type":"keyword",
+                                "ignore_above":1024
+                            }
+                        }
+                    },
+                    "replyUserId":{
+                        "type":"long"
+                    },
+                    "repliedCommentId":{
+                        "type":"long"
+                    },
+                    "targetId":{
+                        "type":"long"
+                    },
+                    "createTime":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
+                    },
+                    "commentId":{
+                        "type":"long"
+                    },
+                    "targetType":{
+                        "type":"integer"
+                    },
+                    "updateTime":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
+                    },
+                    "delFlag":{
+                        "type":"integer"
+                    },
+                    "status":{
+                        "type":"integer"
+                    }
+                }
+            }
+        }
+}
+
+POST /_aliases
+{
+    "actions" : [
+        { "add" : { "index" : "comment_total-2018.02.23", "alias" : "comment_total" } }
+    ]
+}
