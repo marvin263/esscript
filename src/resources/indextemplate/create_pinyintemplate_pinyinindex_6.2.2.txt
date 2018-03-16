@@ -1,0 +1,98 @@
+DELETE /_template/tn_pinyin_analyzer
+DELETE /_template/index_template_pinyin
+PUT /_template/index_template_pinyin
+{
+    "template": "*",
+    "settings": {
+        "analysis": {
+            "analyzer": {
+                "ik_plain_pinyin_analyzer": {
+                    "type": "custom",
+                    "tokenizer": "ik_smart",
+                    "filter": [
+                        "plain_pinyin_filter"
+                    ]
+                },
+                "ik_first_letter_only_pinyin_analyzer": {
+                    "type": "custom",
+                    "tokenizer": "ik_smart",
+                    "filter": [
+                        "first_letter_only_pinyin_filter"
+                    ]
+                },
+                "plain_pinyin_analyzer": {
+                    "type": "custom",
+                    "tokenizer": "keyword",
+                    "filter": [
+                        "plain_pinyin_filter"
+                    ]
+                },
+                "first_letter_only_pinyin_analyzer": {
+                    "type": "custom",
+                    "tokenizer": "keyword",
+                    "filter": [
+                        "first_letter_only_pinyin_filter"
+                    ]
+                }
+            },
+            "filter": {
+                "plain_pinyin_filter": {
+                    "type": "pinyin",
+                    "first_letter": "none",
+                    "padding_char": ""
+                },
+                "first_letter_only_pinyin_filter": {
+                    "type": "pinyin",
+                    "first_letter": "only",
+                    "padding_char": ""
+                }
+            }
+        }
+    }
+}
+
+
+DELETE ik_and_pinyin_index
+PUT ik_and_pinyin_index
+PUT ik_and_pinyin_index/_mapping/ik_and_pinyin_type
+{
+   "dynamic": false,
+   "_all": {
+      "enabled": false
+   },
+   "properties": {
+      "questionId": {
+         "type": "integer"
+      },
+      "question": {
+         "type": "text",
+         "analyzer": "ik_smart",
+         "search_analyzer": "ik_smart",
+         "fields": {
+            "raw": {
+               "type": "keyword"
+            },
+            "raw_plain_pinyin": {
+               "type": "text",
+               "analyzer": "plain_pinyin_analyzer",
+               "search_analyzer": "plain_pinyin_analyzer"
+            },
+            "raw_first_letter_only_pinyin": {
+               "type": "text",
+               "analyzer": "first_letter_only_pinyin_analyzer",
+               "search_analyzer": "first_letter_only_pinyin_analyzer"
+            },
+            "ik_plain_pinyin": {
+               "type": "text",
+               "analyzer": "ik_plain_pinyin_analyzer",
+               "search_analyzer": "ik_plain_pinyin_analyzer"
+            },
+            "ik_first_letter_only_pinyin": {
+               "type": "text",
+               "analyzer": "ik_first_letter_only_pinyin_analyzer",
+               "search_analyzer": "ik_first_letter_only_pinyin_analyzer"
+            }
+         }
+      }
+   }
+}
