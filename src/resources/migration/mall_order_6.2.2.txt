@@ -290,6 +290,10 @@ PUT mall_order-2018.02.23
                     },
                     "adult_count":{
                         "type":"integer"
+                    },
+                    "@index_timestamp":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
                     }
                 }
             }

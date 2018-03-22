@@ -144,6 +144,10 @@ PUT askq_question-2018.02.23
                             "ignore_above":1024
                         }
                     }
+                },
+                "@index_timestamp":{
+                    "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                    "type":"date"
                 }
             }
         }

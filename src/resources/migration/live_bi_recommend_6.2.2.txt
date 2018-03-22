@@ -27,6 +27,10 @@ PUT live_bi_recommend-2018.02.23
                     },
                     "poi_id":{
                         "type":"integer"
+                    },
+                    "@index_timestamp":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
                     }
                 }
             }

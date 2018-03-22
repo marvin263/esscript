@@ -87,6 +87,10 @@ PUT gud_system_board-2018.02.23
                     },
                     "status":{
                         "type":"integer"
+                    },
+                    "@index_timestamp":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
                     }
                 }
             }

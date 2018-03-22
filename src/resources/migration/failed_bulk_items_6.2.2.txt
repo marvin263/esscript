@@ -55,6 +55,10 @@ PUT failed_bulk_items-2018.02.23
                     },
                     "occurOnThread":{
                         "type":"keyword"
+                    },
+                    "@index_timestamp":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
                     }
                 }
             }

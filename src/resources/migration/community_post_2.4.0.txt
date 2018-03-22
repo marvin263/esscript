@@ -410,6 +410,17 @@ PUT community_post-2018.02.23
                     "route_names":{
                         "index":"not_analyzed",
                         "type":"string"
+                    },
+                    "live_replay_url":{
+                      "index":"not_analyzed",
+                      "type":"string"
+                    },
+                    "real_pv":{
+                        "type":"long"
+                    },
+                    "@index_timestamp":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
                     }
                 }
             }
