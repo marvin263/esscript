@@ -1,0 +1,90 @@
+DELETE kwd_stats-2018.02.23
+
+PUT kwd_stats-2018.02.23
+{
+    "mappings":{
+            "docinfo":{
+                "dynamic":"false",
+                "_all":{
+                    "enabled":false
+                },
+                "properties":{
+                    "id":{
+                        "type":"integer"
+                    },
+                    "createTime":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
+                    },
+                    "updateTime":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
+                    },
+                    "@index_timestamp":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
+                    },
+                    "query_id":{
+                        "type":"integer"
+                    },
+                    "encounter_exception":{
+                        "type":"integer"
+                    },
+                    "exception_detail_message":{
+                        "index":"not_analyzed",
+                        "type":"string"
+                    },
+                    "kwd1":{
+                        "index":"not_analyzed",
+                        "type":"string"
+                    },
+                    "kwd2":{
+                        "index":"not_analyzed",
+                        "type":"string"
+                    },
+                    "kwd3":{
+                        "index":"not_analyzed",
+                        "type":"string"
+                    },
+                    "kwd4":{
+                        "index":"not_analyzed",
+                        "type":"string"
+                    },
+                    "kwd5":{
+                        "index":"not_analyzed",
+                        "type":"string"
+                    },
+                    "kwd6":{
+                        "index":"not_analyzed",
+                        "type":"string"
+                    },
+                    "kwd7":{
+                        "index":"not_analyzed",
+                        "type":"string"
+                    },
+                    "kwd8":{
+                        "index":"not_analyzed",
+                        "type":"string"
+                    },
+                    "search_cost_in_millisec":{
+                        "type":"long"
+                    },
+                    "tomcat_instance_id":{
+                        "index":"not_analyzed",
+                        "type":"string"
+                    },
+                    "occur_on_thread":{
+                        "index":"not_analyzed",
+                        "type":"string"
+                    }
+                }
+            }
+        }
+}
+
+POST /_aliases
+{
+    "actions" : [
+        { "add" : { "index" : "kwd_stats-2018.02.23", "alias" : "kwd_stats" } }
+    ]
+}
