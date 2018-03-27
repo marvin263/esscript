@@ -1,0 +1,42 @@
+
+DELETE test_bulk_index
+PUT test_bulk_index
+{
+    "mappings": {
+        "info": {
+            "dynamic": "false",
+            "properties": {
+                "name": {
+                    "type": "keyword"
+                },
+                "birth": {
+                    "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                    "type": "date"
+                },
+                "description": {
+                    "analyzer": "ik_smart",
+                    "type": "text",
+                    "fields": {
+                        "raw": {
+                            "ignore_above": 1024,
+                            "type": "keyword"
+                        }
+                    }
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "@index_timestamp": {
+                    "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                    "type": "date"
+                },
+                "salary": {
+                    "type": "float"
+                },
+                "vip": {
+                    "type": "boolean"
+                }
+            }
+        }
+    }
+}

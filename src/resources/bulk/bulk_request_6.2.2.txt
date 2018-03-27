@@ -1,0 +1,7 @@
+
+curl -s -H "Content-Type: application/x-ndjson" -XPOST 10.10.36.111:9200/_bulk --data-binary "@relativeOrAbsFilePath"; echo
+
+
+curl -s -H "Content-Type: application/x-ndjson" -XPOST 10.30.66.23:9200/_bulk --data-binary "@bulk_request.txt"; echo
+{"create":{"_index":"sink-2018.03.22","_type":"poi","_id":"1797015_0","routing":"0"}}
+{"isChina":true,"isAbroad":false,"districtInfo":{"continentId":3900,"continentName":"亚洲","countryId":40002,"countryName":"中国","provinceId":-1,"provinceName":"","cityId":2500,"cityName":"上海","countyId":2515,"countyName":"浦东新区","streetId":-1,"streetName":""},"typeName":"景点","recommendHour":0,"delFlag":1,"parentId":2515,"pushType":1,"bookCityCode":0,"appId":1,"codeLevel":4,"name":"2014上海迷笛音乐节","typeId":2,"location":{"lon":121.776001,"lat":31.216299},"sutiMonths":[],"id":1797015,"poiCode":"0040002000250000025151797015","mark":"spot"}
