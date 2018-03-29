@@ -5,9 +5,6 @@ PUT kwd_stats-2018.02.23
     "mappings":{
             "docinfo":{
                 "dynamic":"false",
-                "_all":{
-                    "enabled":false
-                },
                 "properties":{
                     "id":{
                         "type":"integer"
@@ -24,13 +21,13 @@ PUT kwd_stats-2018.02.23
                         "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
                         "type":"date"
                     },
-                    "query_id":{
+                    "queryId":{
                         "type":"integer"
                     },
-                    "encounter_exception":{
+                    "encounterException":{
                         "type":"integer"
                     },
-                    "exception_detail_message":{
+                    "exceptionDetailMessage":{
                         "type":"keyword"
                     },
                     "kwd1":{
@@ -57,13 +54,13 @@ PUT kwd_stats-2018.02.23
                     "kwd8":{
                         "type":"keyword"
                     },
-                    "search_cost_in_millisec":{
+                    "searchCostInMillisec":{
                         "type":"long"
                     },
-                    "tomcat_instance_id":{
+                    "tomcatInstanceId":{
                         "type":"keyword"
                     },
-                    "occur_on_thread":{
+                    "occurOnThread":{
                         "type":"keyword"
                     }
                 }

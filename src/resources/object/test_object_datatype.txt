@@ -1,0 +1,34 @@
+DELETE test_object_datatype
+PUT test_object_datatype
+{
+  "mappings":{
+    "_doc":{
+      "dynamic": false,
+      "properties":{
+        "region":{
+          "type":"keyword"
+        },
+        "manager":{
+          "dynamic": false,
+          "properties":{
+            "age":{
+              "type":"integer"
+            },
+            "name":{
+              "dynamic": false,
+              "properties":{
+                "first":{
+                  "type":"text"
+                },
+                "last":{
+                  "type":"text"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

@@ -401,6 +401,29 @@ PUT community_post-2018.02.23
                     "@index_timestamp":{
                         "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
                         "type":"date"
+                    },
+                    "content_body_attr": {
+                      "dynamic": false,
+                      "properties": {
+                        "spring": {
+                          "type": "float"
+                        },
+                        "summer": {
+                          "type": "float"
+                        },
+                        "autumn": {
+                          "type": "float"
+                        },
+                        "winter": {
+                          "type": "float"
+                        },
+                        "body_length": {
+                          "type":"integer"
+                        },
+                        "extra": {
+                          "type":"keyword"
+                        }
+                      }
                     }
                 }
             }
