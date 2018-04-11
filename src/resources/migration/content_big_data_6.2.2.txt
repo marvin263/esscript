@@ -1,0 +1,98 @@
+DELETE content_big_data-2018.02.23
+
+PUT content_big_data-2018.02.23
+{
+    "mappings":{
+            "docinfo":{
+                "dynamic":"false",
+                "properties":{
+                    "title":{
+                        "analyzer":"ik_smart",
+                        "type":"text",
+                        "fields":{
+                            "raw":{
+                                "type":"keyword",
+                                "ignore_above":1024
+                            }
+                        }
+                    },
+                    "cbdId":{
+                        "type":"long"
+                    },
+                    "elementType":{
+                        "type":"integer"
+                    },
+                    "content":{
+                        "analyzer":"ik_smart",
+                        "type":"text",
+                        "fields":{
+                            "raw":{
+                                "type":"keyword",
+                                "ignore_above":1024
+                            }
+                        }
+                    },
+                    "elementId":{
+                        "type":"integer"
+                    },
+                    "paragraph":{
+                        "type":"integer"
+                    },
+                    "imgUrl":{
+                        "type":"keyword"
+                    },
+                    "productId":{
+                        "type":"long"
+                    },
+                    "productType":{
+                        "type":"integer"
+                    },
+                    "videoUrl":{
+                        "type":"keyword"
+                    },
+                    "videoCoverUrl":{
+                        "type":"keyword"
+                    },
+                    "duration":{
+                        "type":"long"
+                    },
+                    "tnvid":{
+                        "type":"integer"
+                    },
+                    "poi": {
+                      "dynamic": false,
+                      "properties": {
+                        "poiId": {
+                          "type": "integer"
+                        },
+                        "poiName": {
+                          "type": "keyword"
+                        },
+                        "poiType": {
+                          "type": "integer"
+                        },
+                        "parentId": {
+                          "type": "integer"
+                        },
+                        "parentName": {
+                          "type": "keyword"
+                        },
+                        "imgUrl": {
+                          "type": "keyword"
+                        },
+                        "typeName": {
+                          "type": "keyword"
+                        }
+                      }
+                    }
+                }
+            }
+        }
+}
+
+POST /_aliases
+{
+    "actions" : [
+        { "add" : { "index" : "content_big_data-2018.02.23", "alias" : "content_big_data" } }
+    ]
+}
