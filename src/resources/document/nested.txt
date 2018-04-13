@@ -1,3 +1,48 @@
+
+DELETE array_of_array
+PUT array_of_array
+{
+  "mappings": {
+    "docinfo": {
+      "dynamic": "false",
+      "properties": {
+        "state": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}
+
+POST array_of_array/docinfo/1
+{
+  "state": [
+    [
+      "a1",
+      "b1"
+    ],
+    [
+      "a2",
+      "b2"
+    ]
+  ]
+}
+
+POST array_of_array/docinfo/2
+{
+  "state": [
+    [
+      "a2",
+      "b2"
+    ],
+    [
+      "a3",
+      "b3"
+    ]
+  ]
+}
+
+
 DELETE test_nested_index
 PUT test_nested_index
 {
@@ -12,12 +57,10 @@ PUT test_nested_index
                     "type":"nested",
                     "properties":{
                         "state":{
-                            "type":"string",
-                            "index":"not_analyzed"
+                            "type":"keyword"
                         },
                         "street":{
-                            "type":"string",
-                            "index":"not_analyzed"
+                            "type":"keyword"
                         }
                     }
                 },
@@ -25,34 +68,26 @@ PUT test_nested_index
                     "type":"nested",
                     "properties":{
                         "a":{
-                            "type":"string",
-                            "index":"not_analyzed"
+                            "type":"keyword"
                         },
                         "b":{
-                            "type":"string",
-                            "index":"not_analyzed"
+                            "type":"keyword"
                         },
                         "c":{
-                            "type":"string",
-                            "index":"not_analyzed"
+                            "type":"keyword"
                         },
                         "d":{
-                            "type":"string",
-                            "index":"not_analyzed"
+                            "type":"keyword"
                         },
                         "first":{
-                            "type":"string",
-                            "index":"not_analyzed"
+                            "type":"keyword"
                         },
                         "last":{
-                            "type":"string",
-                            "index":"not_analyzed"
+                            "type":"keyword"
                         }
                     }
                 }
             }
-        },
-        "aliases":{
         }
     }
 }
