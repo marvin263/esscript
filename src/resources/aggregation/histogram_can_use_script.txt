@@ -1,0 +1,35 @@
+
+http://10.40.190.145:9200/
+
+POST community_post/_search
+{
+  "size": 0,
+  "query": {
+    "function_score": {
+      "query": {
+        "match_all": {}
+      },
+      "functions": [
+        {
+          "random_score": {},
+          "weight": 10
+        }
+      ]
+    }
+  },
+  "aggs": {
+    "type_count": {
+      "histogram": {
+        "script": {
+          "source": "_score"
+        },
+        "interval": 1
+      }
+    }
+  }
+}
+
+
+https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-histogram-aggregation.html
+虽然上述 histogram 文档中并没有说 script 可以替代field，但是，script依然可以替代field 
+

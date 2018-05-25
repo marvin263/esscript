@@ -1,0 +1,103 @@
+DELETE tgsp_article-2018.02.23
+
+PUT tgsp_article-2018.02.23
+{
+  "mappings": {
+    "docinfo": {
+      "dynamic": "false",
+      "properties": {
+        "userId": {
+          "type": "long"
+        },
+        "tId": {
+          "type": "long"
+        },
+        "articleId": {
+          "type": "long"
+        },
+        "poiIds": {
+          "type": "integer"
+        },
+        "tagIds": {
+          "type": "integer"
+        },
+        "visibleInSquare": {
+          "type": "boolean"
+        },
+        "browseNumber": {
+          "type": "integer"
+        },
+        "createTime": {
+          "type": "date",
+          "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
+        },
+        "articleInfo": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "analyzer": "ik_smart",
+              "type": "text",
+              "fields": {
+                "raw": {
+                  "type": "keyword",
+                  "ignore_above": 1024
+                }
+              }
+            },
+            "paragraphs": {
+              "type": "nested",
+              "properties": {
+                "title": {
+                  "analyzer": "ik_smart",
+                  "type": "text",
+                  "fields": {
+                    "raw": {
+                      "type": "keyword",
+                      "ignore_above": 1024
+                    }
+                  }
+                },
+                "content": {
+                  "analyzer": "ik_smart",
+                  "type": "text",
+                  "fields": {
+                    "raw": {
+                      "type": "keyword",
+                      "ignore_above": 1024
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "spaceInfos": {
+          "type": "nested",
+          "properties": {
+            "userId": {
+              "type": "integer"
+            },
+            "spaceId": {
+              "type": "long"
+            },
+            "entryTime": {
+              "type": "date",
+              "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
+            }
+          }
+        },
+        "@index_timestamp":{
+            "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+            "type":"date"
+        }
+      }
+    }
+  }
+}
+
+POST /_aliases
+{
+    "actions" : [
+        { "add" : { "index" : "tgsp_article-2018.02.23", "alias" : "tgsp_article" } }
+    ]
+}
