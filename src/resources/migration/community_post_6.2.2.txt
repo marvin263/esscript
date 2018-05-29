@@ -424,7 +424,28 @@ PUT community_post-2018.02.23
                           "type":"keyword"
                         }
                       }
-                    }
+                    },
+                   "deny_reason": {
+                     "type": "integer"
+                   },
+                   "deny_reason_detail": {
+                     "type": "keyword"
+                   },
+                   "excellent_type": {
+                     "type": "integer"
+                   },
+                   "is_reward": {
+                     "type": "boolean"
+                   },
+                   "update_user_id": {
+                     "type": "long"
+                   },
+                   "image_count": {
+                     "type": "integer"
+                   },
+                   "word_count": {
+                     "type": "integer"
+                   }
                 }
             }
         }
