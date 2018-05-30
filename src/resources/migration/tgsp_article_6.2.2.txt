@@ -31,6 +31,9 @@ PUT tgsp_article-2018.02.23
           "type": "date",
           "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
         },
+        "ancestorPoiIds": {
+          "type": "integer"
+        },            
         "articleInfo": {
           "type": "object",
           "properties": {
