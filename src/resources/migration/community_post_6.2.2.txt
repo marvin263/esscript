@@ -445,6 +445,9 @@ PUT community_post-2018.02.23
                    },
                    "word_count": {
                      "type": "integer"
+                   },
+                   "origin_dest_poi_full_codes":{
+                     "type":"keyword"
                    }
                 }
             }
