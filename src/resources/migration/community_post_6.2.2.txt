@@ -448,6 +448,9 @@ PUT community_post-2018.02.23
                    },
                    "origin_dest_poi_full_codes":{
                      "type":"keyword"
+                   },
+                   "client_type": {
+                     "type": "integer"
                    }
                 }
             }
