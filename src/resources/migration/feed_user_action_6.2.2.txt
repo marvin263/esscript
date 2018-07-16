@@ -1,0 +1,122 @@
+DELETE feed_user_action-2018.02.23
+
+PUT feed_user_action-2018.02.23
+{
+    "mappings":{
+            "docinfo":{
+                "dynamic":"false",
+                "properties":{
+                    "id":{
+                        "type":"long"
+                    },
+                    "createTime":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
+                    },
+                    "updateTime":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
+                    },
+                    "@index_timestamp":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
+                    },
+                    "userId":{
+                        "type":"long"
+                    },
+                    "actionType":{
+                        "type":"integer"
+                    },
+                    "actionAncestorType":{
+                        "type":"integer"
+                    },
+                    "actionAncestorId":{
+                        "type":"long"
+                    },
+                    "actionTargetType":{
+                        "type":"integer"
+                    },
+                    "actionTargetId":{
+                        "type":"long"
+                    },
+                    "visible":{
+                        "type":"integer"
+                    },
+                    "extraInt01":{
+                        "type":"integer"
+                    },
+                    "extraInt02":{
+                        "type":"integer"
+                    },
+                    "extraInt03":{
+                        "type":"integer"
+                    },
+                    "extraInt04":{
+                        "type":"integer"
+                    },
+                    "extraLong01":{
+                        "type":"long"
+                    },
+                    "extraLong02":{
+                        "type":"long"
+                    },
+                    "extraLong03":{
+                        "type":"long"
+                    },
+                    "extraLong04":{
+                        "type":"long"
+                    },
+                    "extraVarchar6401":{
+                        "analyzer":"ik_smart",
+                        "type":"text",
+                        "fields":{
+                            "raw":{
+                                "type":"keyword",
+                                "ignore_above":1024
+                            }
+                        }
+                    },
+                    "extraVarchar6402":{
+                        "analyzer":"ik_smart",
+                        "type":"text",
+                        "fields":{
+                            "raw":{
+                                "type":"keyword",
+                                "ignore_above":1024
+                            }
+                        }
+                    },
+                    "extraVarchar6403":{
+                        "analyzer":"ik_smart",
+                        "type":"text",
+                        "fields":{
+                            "raw":{
+                                "type":"keyword",
+                                "ignore_above":1024
+                            }
+                        }
+                    },
+                    "extraVarchar6404":{
+                        "analyzer":"ik_smart",
+                        "type":"text",
+                        "fields":{
+                            "raw":{
+                                "type":"keyword",
+                                "ignore_above":1024
+                            }
+                        }
+                    },
+                    "extra":{
+                        "type":"keyword"
+                    }
+                }
+            }
+        }
+}
+
+POST /_aliases
+{
+    "actions" : [
+        { "add" : { "index" : "feed_user_action-2018.02.23", "alias" : "feed_user_action" } }
+    ]
+}

@@ -1,0 +1,40 @@
+DELETE feed_stream-2018.02.23
+
+PUT feed_stream-2018.02.23
+{
+    "mappings":{
+            "docinfo":{
+                "dynamic":"false",
+                "properties":{
+                    "id":{
+                        "type":"long"
+                    },
+                    "createTime":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
+                    },
+                    "updateTime":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
+                    },
+                    "@index_timestamp":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
+                    },
+                    "userId":{
+                        "type":"long"
+                    },
+                    "userActionId":{
+                        "type":"long"
+                    }
+                }
+            }
+        }
+}
+
+POST /_aliases
+{
+    "actions" : [
+        { "add" : { "index" : "feed_stream-2018.02.23", "alias" : "feed_stream" } }
+    ]
+}
