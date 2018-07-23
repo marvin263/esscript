@@ -9,6 +9,9 @@ PUT tgsp_article-2018.02.23
         "userId": {
           "type": "long"
         },
+        "sourceCode":{
+            "type":"keyword"
+        },
         "tId": {
           "type": "long"
         },

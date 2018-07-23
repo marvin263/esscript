@@ -27,16 +27,16 @@ PUT feed_user_action-2018.02.23
                     "actionType":{
                         "type":"integer"
                     },
-                    "actionAncestorType":{
+                    "ancestorType":{
                         "type":"integer"
                     },
-                    "actionAncestorId":{
+                    "ancestorId":{
                         "type":"long"
                     },
-                    "actionTargetType":{
+                    "targetType":{
                         "type":"integer"
                     },
-                    "actionTargetId":{
+                    "targetId":{
                         "type":"long"
                     },
                     "visible":{
