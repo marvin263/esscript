@@ -27,6 +27,9 @@ PUT feed_user_action-2018.02.23
                     "actionType":{
                         "type":"integer"
                     },
+                    "actionName":{
+                        "type":"keyword"
+                    },
                     "ancestorType":{
                         "type":"integer"
                     },
@@ -108,6 +111,9 @@ PUT feed_user_action-2018.02.23
                     },
                     "extra":{
                         "type":"keyword"
+                    },
+                    "delFlag":{
+                        "type":"integer"
                     }
                 }
             }
