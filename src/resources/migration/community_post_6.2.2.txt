@@ -451,6 +451,10 @@ PUT community_post-2018.02.23
                    },
                    "client_type": {
                      "type": "integer"
+                   },
+                   "g_location":{
+                       "type":"geo_point",
+                       "ignore_malformed":true
                    }
                 }
             }

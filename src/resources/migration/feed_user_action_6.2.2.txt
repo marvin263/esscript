@@ -114,6 +114,24 @@ PUT feed_user_action-2018.02.23
                     },
                     "delFlag":{
                         "type":"integer"
+                    },
+                    "ancestorStatus":{
+                        "type":"integer"
+                    },
+                    "ancestorStatusName":{
+                        "type":"keyword"
+                    },
+                    "ancestorDelFlag":{
+                        "type":"integer"
+                    },
+                    "targetStatus":{
+                        "type":"integer"
+                    },
+                    "targetStatusName":{
+                        "type":"keyword"
+                    },
+                    "targetDelFlag":{
+                        "type":"integer"
                     }
                 }
             }
