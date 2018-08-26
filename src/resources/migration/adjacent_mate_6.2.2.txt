@@ -1,0 +1,30 @@
+
+DELETE adjacent_mate
+PUT adjacent_mate
+{
+    "mappings": {
+        "_doc": {
+            "dynamic": "false",
+            "properties": {
+                "time": {
+                    "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                    "type": "date"
+                },
+                "uniquekey": {
+                     "type": "keyword"
+                },
+                "userid": {
+                    "type": "keyword"
+                },
+                "location":{
+                    "type":"geo_point",
+                    "ignore_malformed":true
+                },
+                "@index_timestamp":{
+                    "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                    "type":"date"
+                }
+            }
+        }
+    }
+}

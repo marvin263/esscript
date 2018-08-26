@@ -3,7 +3,7 @@
 
 共 4 个actions：index, create, delete, update
 
-index（加入/更细 doc） 和 create（也是索引一个doc，但，如果同样的doc已存在，则报错）
+index（加入/更新 doc） 和 create（也是索引一个doc，但，如果同样的doc已存在，则报错）
 紧接着的下一行必须 要有 source
 
 delete

@@ -6,6 +6,28 @@ PUT content_big_data-2018.02.23
             "docinfo":{
                 "dynamic":"false",
                 "properties":{
+                    "targetId":{
+                        "type":"long"
+                    },
+                    "targetType":{
+                        "type":"integer"
+                    },
+                    "ancestorId":{
+                        "type":"long"
+                    },
+                    "ancestorType":{
+                        "type":"integer"
+                    },
+                    "createTime":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
+                    },
+                    "userId":{
+                        "type":"long"
+                    },
+                    "paragraphCount":{
+                        "type":"integer"
+                    },
                     "title":{
                         "analyzer":"ik_smart",
                         "type":"text",
@@ -84,6 +106,10 @@ PUT content_big_data-2018.02.23
                           "type": "keyword"
                         }
                       }
+                    },
+                    "@index_timestamp":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
                     }
                 }
             }
