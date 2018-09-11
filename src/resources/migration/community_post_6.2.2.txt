@@ -455,6 +455,9 @@ PUT community_post-2018.02.23
                    "g_location":{
                        "type":"geo_point",
                        "ignore_malformed":true
+                   },
+                   "editor_type": {
+                     "type": "integer"
                    }
                 }
             }

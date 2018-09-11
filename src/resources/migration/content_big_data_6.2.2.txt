@@ -6,6 +6,9 @@ PUT content_big_data-2018.02.23
             "docinfo":{
                 "dynamic":"false",
                 "properties":{
+                    "permanentElementId":{
+                        "type":"keyword"
+                    },
                     "targetId":{
                         "type":"long"
                     },
