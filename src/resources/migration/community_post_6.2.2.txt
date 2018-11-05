@@ -458,7 +458,13 @@ PUT community_post-2018.02.23
                    },
                    "editor_type": {
                      "type": "integer"
-                   }
+                   },
+                    "topic_ids":{
+                        "type":"long"
+                    },
+                    "topic_names":{
+                        "type":"keyword"
+                    }
                 }
             }
         }
