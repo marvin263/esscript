@@ -1,0 +1,88 @@
+DELETE cmt_topic-2018.02.23
+
+PUT cmt_topic-2018.02.23
+{
+    "mappings":{
+            "docinfo":{
+                "dynamic":"false",
+                "_all":{
+                    "enabled":false
+                },
+                "properties":{
+                    "topic_type":{
+                        "type":"integer"
+                    },
+                    "topic_id":{
+                        "type":"long"
+                    },
+                    "topic_name":{
+                        "type":"keyword"
+                    },
+                    "is_hot":{
+                        "type":"boolean"
+                    },
+                    "description":{
+                        "analyzer":"ik_smart",
+                        "type":"text",
+                        "fields":{
+                            "raw":{
+                                "type":"keyword",
+                                "ignore_above":1024
+                            }
+                        }
+                    },
+                    "poi_id":{
+                        "type":"integer"
+                    },
+                    "participants_people_number":{
+                        "type":"integer"
+                    },
+                    "post_count":{
+                        "type":"integer"
+                    },
+                    "post_excellent_count":{
+                        "type":"integer"
+                    },
+                    "pv":{
+                        "type":"long"
+                    },
+                    "creator_id":{
+                        "type":"long"
+                    },
+                    "updater_id":{
+                        "type":"long"
+                    },
+                    "image_url":{
+                        "type":"keyword"
+                    },
+                    "create_time":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
+                    },
+                    "update_time":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
+                    },
+                    "latest_post_publish_time":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
+                    },
+                    "latest_post_comment_publish_time":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
+                    },
+                    "@index_timestamp":{
+                        "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                        "type":"date"
+                    }
+                }
+            }
+        }
+}
+
+POST /_aliases
+{
+    "actions" : [
+        { "add" : { "index" : "cmt_topic-2018.02.23", "alias" : "cmt_topic" } }
+    ]
+}
