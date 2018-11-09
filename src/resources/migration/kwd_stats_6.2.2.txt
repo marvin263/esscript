@@ -7,7 +7,7 @@ PUT kwd_stats-2018.02.23
                 "dynamic":"false",
                 "properties":{
                     "id":{
-                        "type":"integer"
+                        "type":"long"
                     },
                     "createTime":{
                         "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
@@ -21,6 +21,9 @@ PUT kwd_stats-2018.02.23
                         "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
                         "type":"date"
                     },
+                    "@timestamp": {
+                        "type": "date"
+                    },
                     "queryId":{
                         "type":"integer"
                     },
@@ -28,7 +31,14 @@ PUT kwd_stats-2018.02.23
                         "type":"integer"
                     },
                     "exceptionDetailMessage":{
-                        "type":"keyword"
+                        "analyzer":"ik_smart",
+                        "type":"text",
+                        "fields":{
+                            "raw":{
+                                "type":"keyword",
+                                "ignore_above":1024
+                            }
+                        }
                     },
                     "kwd1":{
                         "type":"keyword"
