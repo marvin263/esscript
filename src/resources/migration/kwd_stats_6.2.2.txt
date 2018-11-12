@@ -3,7 +3,7 @@ DELETE kwd_stats-2018.02.23
 PUT kwd_stats-2018.02.23
 {
     "mappings":{
-            "docinfo":{
+            "doc":{
                 "dynamic":"false",
                 "properties":{
                     "id":{
