@@ -9,11 +9,11 @@ PUT kwd_stats-2018.02.23
                     "id":{
                         "type":"long"
                     },
-                    "createTime":{
+                    "create_time":{
                         "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
                         "type":"date"
                     },
-                    "updateTime":{
+                    "update_time":{
                         "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
                         "type":"date"
                     },
@@ -24,13 +24,13 @@ PUT kwd_stats-2018.02.23
                     "@timestamp": {
                         "type": "date"
                     },
-                    "queryId":{
+                    "query_id":{
                         "type":"integer"
                     },
-                    "encounterException":{
+                    "encounter_exception":{
                         "type":"integer"
                     },
-                    "exceptionDetailMessage":{
+                    "exception_detail_message":{
                         "analyzer":"ik_smart",
                         "type":"text",
                         "fields":{
@@ -64,13 +64,13 @@ PUT kwd_stats-2018.02.23
                     "kwd8":{
                         "type":"keyword"
                     },
-                    "searchCostInMillisec":{
+                    "search_cost_in_millisec":{
                         "type":"long"
                     },
-                    "tomcatInstanceId":{
+                    "tomcat_instance_id":{
                         "type":"keyword"
                     },
-                    "occurOnThread":{
+                    "occur_on_thread":{
                         "type":"keyword"
                     }
                 }
