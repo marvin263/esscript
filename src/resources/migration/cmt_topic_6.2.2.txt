@@ -40,6 +40,12 @@ PUT cmt_topic-2018.02.23
                     "post_count":{
                         "type":"integer"
                     },
+                    "source":{
+                        "type":"integer"
+                    },
+                    "share_count":{
+                        "type":"integer"
+                    },
                     "post_excellent_count":{
                         "type":"integer"
                     },
