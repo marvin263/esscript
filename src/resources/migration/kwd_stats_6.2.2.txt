@@ -27,6 +27,9 @@ PUT kwd_stats-2018.02.23
                     "query_id":{
                         "type":"integer"
                     },
+                    "query_desc":{
+                        "type":"keyword"
+                    },
                     "encounter_exception":{
                         "type":"integer"
                     },

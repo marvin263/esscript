@@ -199,6 +199,35 @@ PUT venus_poi-2018.02.23
                     "@index_timestamp":{
                         "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
                         "type":"date"
+                    },
+                    "bi_tags":{
+                        "type":"object",
+                        "dynamic":false,
+                        "enabled":true,
+                        "properties":{
+                            "tag_name":{
+                                "type":"keyword"
+                            },
+                            "tag_id":{
+                                "type":"integer"
+                            }
+                        }
+                    },
+                    "tags":{
+                        "type":"object",
+                        "dynamic":false,
+                        "enabled":true,
+                        "properties":{
+                            "tag_name":{
+                                "type":"keyword"
+                            },
+                            "num":{
+                                "type":"integer"
+                            },
+                            "tag_id":{
+                                "type":"integer"
+                            }
+                        }
                     }
                 }
             }
