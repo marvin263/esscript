@@ -464,6 +464,9 @@ PUT community_post-2018.02.23
                     },
                     "topic_names":{
                         "type":"keyword"
+                    },
+                    "filter_id":{
+                      "type":"keyword"
                     }
                 }
             }
