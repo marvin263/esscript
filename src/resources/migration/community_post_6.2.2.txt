@@ -467,6 +467,9 @@ PUT community_post-2018.02.23
                     },
                     "filter_id":{
                       "type":"keyword"
+                    },
+                    "filter_system_type":{
+                      "type":"integer"
                     }
                 }
             }
