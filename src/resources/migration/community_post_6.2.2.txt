@@ -473,6 +473,22 @@ PUT community_post-2018.02.23
                     },
                     "preliminary_opinion": {
                        "type": "integer"
+                    },
+                    "user_identity_type": {
+                       "type": "integer"
+                    },
+                    "content_productIds": {
+                       "type": "integer"
+                    },
+                    "automatic_tag_names":{
+                        "analyzer":"ik_smart",
+                        "type":"text",
+                        "fields":{
+                            "raw":{
+                                "type":"keyword",
+                                "ignore_above":1024
+                            }
+                        }
                     }
                 }
             }

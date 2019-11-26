@@ -1,0 +1,55 @@
+DELETE product_comment_tag-2018.02.23
+
+PUT product_comment_tag-2018.02.23
+{
+    "mappings":{
+        "docinfo":{
+            "dynamic":"false",
+            "_all":{
+                "enabled":false
+            },
+            "properties":{
+                "product_id":{
+                    "type":"long"
+                },
+                "product_type":{
+                    "type":"integer"
+                },
+                "comment_id":{
+                    "type":"long"
+                },
+                "user_id":{
+                    "type":"long"
+                },
+                "comment_tag_positive":{
+                    "type":"keyword"
+                },
+                "comment_tag_negative":{
+                    "type":"keyword"
+                },
+                "comment_tag_neutrality":{
+                    "type":"keyword"
+                },
+                "comment_tag_create_time":{
+                    "type":"date",
+                    "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
+                },
+                "comment_tag_update_time":{
+                    "type":"date",
+                    "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
+                },
+                "@index_timestamp":{
+                    "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                    "type":"date"
+                }
+            }
+        }
+    }
+}
+
+POST /_aliases
+{
+    "actions" : [
+        { "add" : { "index" : "product_comment_tag-2018.02.23", "alias" : "product_comment_tag" } }
+    ]
+}

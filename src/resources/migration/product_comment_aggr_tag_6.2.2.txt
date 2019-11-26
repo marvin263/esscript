@@ -1,0 +1,112 @@
+DELETE product_comment_aggr_tag-2018.02.23
+
+PUT product_comment_aggr_tag-2018.02.23
+{
+    "mappings":{
+        "docinfo":{
+            "dynamic":"false",
+            "_all":{
+                "enabled":false
+            },
+            "properties":{
+                "comment_tag_top_positive":{
+                    "type":"nested",
+                    "properties":{
+                        "tag_name":{
+                            "type":"keyword"
+                        },
+                        "sentiment":{
+                            "type":"integer"
+                        },
+                        "is_show":{
+                            "type":"boolean"
+                        },
+                        "tag_number":{
+                            "type":"integer"
+                        },
+                        "sort":{
+                            "type":"integer"
+                        },
+                        "is_edited":{
+                            "type":"boolean"
+                        }
+                    }
+                },
+                "comment_tag_top_negative":{
+                    "type":"nested",
+                    "properties":{
+                        "tag_name":{
+                            "type":"keyword"
+                        },
+                        "sentiment":{
+                            "type":"integer"
+                        },
+                        "is_show":{
+                            "type":"boolean"
+                        },
+                        "tag_number":{
+                            "type":"integer"
+                        },
+                        "sort":{
+                            "type":"integer"
+                        },
+                        "is_edited":{
+                            "type":"boolean"
+                        }
+                    }
+                },
+                "comment_tag_top_neutrality":{
+                    "type":"nested",
+                    "properties":{
+                        "tag_name":{
+                            "type":"keyword"
+                        },
+                        "sentiment":{
+                            "type":"integer"
+                        },
+                        "is_show":{
+                            "type":"boolean"
+                        },
+                        "tag_number":{
+                            "type":"integer"
+                        },
+                        "sort":{
+                            "type":"integer"
+                        },
+                        "is_edited":{
+                            "type":"boolean"
+                        }
+                    }
+                },
+                "product_id":{
+                    "type":"long"
+                },
+                "product_type":{
+                    "type":"integer"
+                },
+                "comment_count":{
+                    "type":"integer"
+                },
+                "create_time":{
+                    "type":"date",
+                    "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
+                },
+                "update_time":{
+                    "type":"date",
+                    "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
+                },
+                "@index_timestamp":{
+                    "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis",
+                    "type":"date"
+                }
+            }
+        }
+    }
+}
+
+POST /_aliases
+{
+    "actions" : [
+        { "add" : { "index" : "product_comment_aggr_tag-2018.02.23", "alias" : "product_comment_aggr_tag" } }
+    ]
+}

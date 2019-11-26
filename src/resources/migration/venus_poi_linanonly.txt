@@ -1,6 +1,6 @@
-DELETE venus_poi-2018.02.23
+DELETE venus_poi-2019.05.06
 
-PUT venus_poi-2018.02.23
+PUT venus_poi-2019.05.06
 {
     "mappings":{
             "poiinfo":{
@@ -243,6 +243,6 @@ PUT venus_poi-2018.02.23
 POST /_aliases
 {
     "actions" : [
-        { "add" : { "index" : "venus_poi-2018.02.23", "alias" : "venus_poi" } }
+        { "add" : { "index" : "venus_poi-2019.05.06", "alias" : "venus_poi_with_preliminary_poi" } }
     ]
 }
