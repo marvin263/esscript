@@ -29,6 +29,9 @@ PUT product_comment_aggr_tag-2018.02.23
                         },
                         "is_edited":{
                             "type":"boolean"
+                        },
+                        "tag_type":{
+                            "type":"integer"
                         }
                     }
                 },
@@ -52,6 +55,9 @@ PUT product_comment_aggr_tag-2018.02.23
                         },
                         "is_edited":{
                             "type":"boolean"
+                        },
+                        "tag_type":{
+                            "type":"integer"
                         }
                     }
                 },
@@ -75,6 +81,9 @@ PUT product_comment_aggr_tag-2018.02.23
                         },
                         "is_edited":{
                             "type":"boolean"
+                        },
+                        "tag_type":{
+                            "type":"integer"
                         }
                     }
                 },

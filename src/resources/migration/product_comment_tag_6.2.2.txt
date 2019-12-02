@@ -30,6 +30,23 @@ PUT product_comment_tag-2018.02.23
                 "comment_tag_neutrality":{
                     "type":"keyword"
                 },
+                "comment_tag_positive_merged":{
+                    "type":"keyword"
+                },
+                "comment_tag_negative_merged":{
+                    "type":"keyword"
+                },
+                "comment_tag_neutrality_merged":{
+                    "type":"keyword"
+                },
+                "comment_create_time":{
+                    "type":"date",
+                    "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
+                },
+                "comment_update_time":{
+                    "type":"date",
+                    "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
+                },
                 "comment_tag_create_time":{
                     "type":"date",
                     "format":"yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
